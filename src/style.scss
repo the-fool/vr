@@ -1,9 +1,21 @@
 @import "~normalize.css";
 
+$vert-pad: 1em;
+$spacer: 0.2em;
+$height: 450px;
+$light: #fafafa;
+$accent: #4666a7;
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.rel {
+  position: relative;
+}
+
 body {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
   font-family: 'Mukta Vaani', sans-serif;
   width: 100%;
   height: 100%;
@@ -11,50 +23,63 @@ body {
   color: #404040;
   background: #F0F0F0;
 
-  canvas {
-    display: block;
-    vertical-align: bottom;
-  }
-
-  /* ---- particles.js container ---- */
-
-  #particle-canvas {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: #F0F0F0;
-  }
-
-  .main {
-    top: 30%;
-    position: fixed;
-    margin-top: -60px;
-    text-align: center;
+  .wrap {
     z-index: 100;
-
-    h1 {
-      font-size: 60px;
-      line-height: 60px;
-      opacity: 0;
-      animation: fadein .75s forwards;
-      animation-delay: 0.5s;
-    }
-
-    h2 {
-      margin-top: 12px;
-      font-size: 24px;
-      opacity: 0;
-      animation: fadein .75s forwards;
-      animation-delay: 2s;
-    }
   }
 }
 
-@keyframes fadein {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+.fade-in {
+  opacity: 0;
+  animation: fadein .75s forwards;
+  animation-delay: 0.5s;
+
+  &.slow {
+    animation-delay: 1.5s;
+  }
 }
 
-li {
-  margin: 10px 0;
+.light {
+  color: $light;
+}
+
+.accent {
+  color: $accent;
+}
+
+#home {
+  position: absolute;
+  top: 8%;
+  left: 10%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+
+  .name {
+    position: absolute;
+    padding: $vert-pad 0;
+  }
+
+  .tag {
+    position: absolute;
+    bottom: $vert-pad;
+  }
+
+  .left {
+    width: 200px;
+    height: $height;
+    background: $accent;
+    color: $light;
+
+    * {
+      right: 0;
+      padding-right: $spacer;
+    }
+  }
+
+  .right {
+    color: $accent;
+    padding-left: $spacer;
+  }
+
+
 }
