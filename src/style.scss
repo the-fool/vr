@@ -21,7 +21,7 @@ body {
   height: 100%;
   overflow: hidden;
   color: #404040;
-  background: #F0F0F0;
+  background: $light;
 
   .wrap {
     z-index: 100;
@@ -66,6 +66,7 @@ body {
 
   .left {
     width: 200px;
+    border-radius: 4px;
     height: $height;
     background: $accent;
     color: $light;
