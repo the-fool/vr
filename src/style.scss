@@ -125,9 +125,11 @@ body {
     }
   }
 }
+button:focus {outline:0;}
 
 #open {
   display: block;
+  z-index: 1000;
   position: absolute;
   right: 1em;
   padding: 0;
