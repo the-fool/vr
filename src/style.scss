@@ -53,6 +53,12 @@ body {
   margin: auto;
   display: flex;
   flex-direction: row;
+  height: $height;
+  max-height: 75vh;
+
+  * {
+    max-height: 80vw;
+  }
 
   .name {
     position: absolute;
@@ -66,9 +72,8 @@ body {
 
   .left {
     width: 200px;
+    max-width: 44vw;
     border-radius: 4px;
-    height: $height;
-    max-height: 80vh;
     background: $accent;
     color: $light;
 
