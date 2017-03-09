@@ -1,14 +1,18 @@
 @import "~normalize.css";
 
 $break-md: 768px;
-$hor-pad: 10%;
+$hor-pad: 7%;
+$home-height: 80vw;
 $vert-pad: 1em;
 $spacer: 0.2em;
 $height: 450px;
 $light: #fafafa;
 $accent: #4666a7;
-
+$trans-time: 0.3s;
 $hamburger-layer-color: $accent;
+$hamburger-layer-width: 20px;
+$hamburger-layer-height: 2px;
+$hamburger-layer-spacing: 4px;
 @import "~hamburgers/_sass/hamburgers/hamburgers.scss";
 
 
@@ -63,11 +67,12 @@ body {
   width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   height: $height;
   max-height: 75vh;
 
   * {
-    max-height: 80vw;
+    max-height: $home-height;
   }
 
   .name {
@@ -81,13 +86,14 @@ body {
   }
 
   .left {
-    width: 14em;
+    width: 22rem;
     margin-left: $hor-pad;
-    min-width: 10em;
-    max-width: 30vw;
+    min-width: 9rem;
+    max-width: 25vw;
     border-radius: 4px;
     background: $accent;
     color: $light;
+    transition: $trans-time;
 
     * {
       right: 0;
@@ -98,29 +104,29 @@ body {
   .right {
     color: $accent;
     padding-left: $spacer;
+    margin-right: auto;
   }
 
 }
 button:focus {outline:0;}
 #nav {
   z-index: 1;
-  overflow-x: hidden;
-  width: 0;
-  text-align: end;
-  position: absolute;
-  right: 0;
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  transition: 0.3s;
+  justify-content: space-around;
+  overflow: hidden;
+  width: 0;
+  margin-right: $hor-pad;
+  text-align: end;
+  background: $light;
+  transition: $trans-time;
 
   a {
     display: block;
   }
   .link {
     display: inline-block;
-    margin: 0.7em $hor-pad;
+    margin: 0 $hor-pad;
     font-size: 24px;
     color: $accent;
     cursor: pointer;
@@ -132,10 +138,12 @@ button:focus {outline:0;}
   }
   @media screen and (min-width: $break-md) {
     width: 100%;
+    background: transparent;
     opacity: 0;
     animation: fadein 0.55s forwards;
     animation-delay: 2s;
-    //margin-right: $hor-pad;
+    // double the right margin
+    margin-right: $hor-pad;
   }
 
 }
@@ -144,8 +152,8 @@ button:focus {outline:0;}
   display: block;
   z-index: 1000;
   position: absolute;
-  right: 2em;
-  top: 1em;
+  right: 10%;
+  top: 1rem;
   padding: 0;
 
   @media screen and (min-width: $break-md) {
