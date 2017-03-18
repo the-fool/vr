@@ -8,7 +8,9 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
-    app: './app.js'
+    core: './core.js',
+    home: './home.js',
+    video: './video.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -49,7 +51,14 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './src/index.html')
+      filename: 'index.html',
+      template: path.resolve(__dirname, './src/index.html'),
+      chunks: ['commons', 'home']
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'video.html',
+      template: path.resolve(__dirname, './src/video.html'),
+      chunks: ['commons', 'video']
     }),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
@@ -59,7 +68,7 @@ module.exports = {
     new webpack.optimize.CommonsChunkPlugin({
       name: 'commons',
       filename: 'commons.js',
-      minChunks: 2
+      minChunks: Infinity
     }),
     new webpack.ProvidePlugin({
       videojs: 'video.js',

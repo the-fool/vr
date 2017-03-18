@@ -1,5 +1,4 @@
 import './style.scss';
-import 'video.js';
 
 (function() {
   var accent = '#4666a7';
