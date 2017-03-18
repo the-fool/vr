@@ -74,7 +74,7 @@ module.exports = {
       videojs: 'video.js',
       'window.videojs': 'video.js'
     }),
-    new ExtractTextPlugin("styles.css"),
+    new ExtractTextPlugin({filename: '[name].css', allChunks:true}),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,
