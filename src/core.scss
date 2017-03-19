@@ -7,6 +7,8 @@ $hamburger-layer-color: $accent;
 $hamburger-layer-width: 20px;
 $hamburger-layer-height: 2px;
 $hamburger-layer-spacing: 4px;
+$main-max-height: 450px;
+$main-height: 75vh;
 
 
 $trans-time: 0.3s;
@@ -24,6 +26,12 @@ body {
 
 .light {
   color: $light;
+}
+
+.wrap {
+  position: absolute;
+  top: 8%;
+  width: 100%;
 }
 
 .accent {
@@ -44,6 +52,8 @@ button:focus {outline:0;}
   overflow: hidden;
   text-align: end;
   background: $light;
+  max-height: $main-max-height;
+  height: $main-height;
 
   a {
     display: block;

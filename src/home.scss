@@ -1,9 +1,7 @@
 @import "./core.scss";
 
-$home-height: 80vw;
 $vert-pad: 1rem;
 $spacer: 0.2em;
-$height: 450px;
 
 
 @keyframes fadein {
@@ -33,12 +31,6 @@ h2 {
   }
 }
 
-.wrap {
-  position: absolute;
-  top: 8%;
-  width: 100%;
-}
-
 #nav {
   width: 0;
   transition: $trans-time;
@@ -57,11 +49,13 @@ h2 {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  height: $height;
+  height: $main-max-height;
   max-height: 75vh;
 
   * {
-    max-height: $home-height;
+    @media screen and (max-width: $break-md) {
+      max-height: 80vw;
+    }
   }
 
   .name {
