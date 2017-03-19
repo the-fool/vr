@@ -2,7 +2,7 @@ import './experience.scss';
 
 let navstate = 0;
 let button = document.getElementById('open');
-let nav = document.getElementById('nav');
+let nav = document.getElementById('nav-outer');
 
 button.addEventListener('click', toggleNav);
 

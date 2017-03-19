@@ -1,7 +1,11 @@
 @import "./core.scss";
 
-#nav {
+#nav-outer {
   opacity: 1;
+  z-index: 1;
+  overflow: hidden;
+  background: $light;
+  border-left: 1px solid $accent;
   height: 100%;
   width: 200px;
   position: fixed!important;
@@ -21,5 +25,19 @@
   to {
     right: 0;
     opacity: 1;
+  }
+}
+
+.content {
+  margin: 10px;
+
+  h3 {
+    color: $accent;
+    margin-bottom: 5px;
+  }
+
+  ul {
+    margin-top: 0;
+    list-style: none;
   }
 }
