@@ -5,12 +5,14 @@
   z-index: 1;
   overflow: hidden;
   background: $light;
-  border-left: 1px solid $accent;
   height: 100%;
   width: 200px;
   position: fixed!important;
 
+  right: 7%;
+
   @media screen and (max-width: $break-md) {
+    border-left: 1px solid $accent;
     display: none;
     animation: animateright 0.3s forwards;
   }
@@ -30,6 +32,11 @@
 
 .content {
   margin: 10px;
+
+  @media screen and (min-width: $break-md) {
+    margin-left: 7%;
+  }
+
 
   h3 {
     color: $accent;
