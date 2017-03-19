@@ -16,6 +16,10 @@
     display: none;
     animation: animateright 0.3s forwards;
   }
+
+  .link.active {
+    border-color: $accent;
+  }
 }
 
 @keyframes animateright {
