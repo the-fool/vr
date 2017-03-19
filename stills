@@ -1,0 +1,1 @@
+ffmpeg -i dream.webm -filter:v fps=fps=20/60 -qscale:v 2 ffmpeg_%0d.jpg

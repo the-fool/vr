@@ -5,12 +5,19 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
+const app = name => new HtmlWebpackPlugin({
+  filename: `${name}.html`,
+  template: path.resolve(__dirname, `./src/${name}.html`),
+  chunks: ['commons', name]
+});
+
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
     core: './core.js',
     home: './home.js',
-    video: './video.js'
+    video: './video.js',
+    experience: './experience.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -28,8 +35,12 @@ module.exports = {
       },
       {
         test: /\.js$/,
+        exclude: /node_modules/,
         use: [{
-          loader: 'babel-loader'
+          loader: 'babel-loader',
+          options: {
+            presets: ['es2015']
+          }
         }]
       },
       {
@@ -55,16 +66,18 @@ module.exports = {
       template: path.resolve(__dirname, './src/index.html'),
       chunks: ['commons', 'home']
     }),
-    new HtmlWebpackPlugin({
-      filename: 'video.html',
-      template: path.resolve(__dirname, './src/video.html'),
-      chunks: ['commons', 'video']
-    }),
+    app('video'),
+    app('experience'),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
-      options: { postcss: [ autoprefixer ] }
+      options: {
+        postcss: [autoprefixer]
+      }
     }),
-    new CopyWebpackPlugin([ { from: 'assets', to: 'assets' } ]),
+    new CopyWebpackPlugin([{
+      from: 'assets',
+      to: 'assets'
+    }]),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'commons',
       filename: 'commons.js',
@@ -74,7 +87,10 @@ module.exports = {
       videojs: 'video.js',
       'window.videojs': 'video.js'
     }),
-    new ExtractTextPlugin({filename: '[name].css', allChunks:true}),
+    new ExtractTextPlugin({
+      filename: '[name].css',
+      allChunks: true
+    }),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false,

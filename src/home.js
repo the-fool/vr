@@ -1,4 +1,4 @@
-import './style.scss';
+import './home.scss';
 
 (function() {
   var accent = '#4666a7';
@@ -16,12 +16,12 @@ import './style.scss';
       navState = 0;
       button.classList.remove('is-active');
       nav.style.width = 0;
-      left.style.color = light;
+      left.classList.remove('blend');
     } else {
       navState = 1;
       button.classList.add('is-active');
       nav.style.width = '100%';
-      left.style.color = accent;
+      left.classList.add('blend');
     }
   }
 })();
