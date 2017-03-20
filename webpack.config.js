@@ -11,13 +11,19 @@ const app = name => new HtmlWebpackPlugin({
   chunks: ['commons', name]
 });
 
+const page = name => new HtmlWebpackPlugin({
+  filename: `${name}.html`,
+  template: path.resolve(__dirname, `./src/${name}.html`),
+  chunks: ['commons', 'page']
+});
+
 module.exports = {
   context: path.resolve(__dirname, './src'),
   entry: {
     core: './core.js',
     home: './home.js',
     video: './video.js',
-    experience: './experience.js'
+    page: './page.js'
   },
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -67,7 +73,8 @@ module.exports = {
       chunks: ['commons', 'home']
     }),
     app('video'),
-    app('experience'),
+    page('experience'),
+    page('expertise'),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       options: {

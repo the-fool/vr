@@ -1,4 +1,4 @@
-import './experience.scss';
+import './page.scss';
 
 let navstate = 0;
 let button = document.getElementById('open');

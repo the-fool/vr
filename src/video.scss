@@ -2,4 +2,12 @@
 @import "~video.js/dist/video-js.css";
 
 body {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#wrap {
+  max-width: 460px;
+  width: 80%;
 }
