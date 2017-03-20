@@ -1,5 +1,10 @@
 @import "./core.scss";
 
+.wrap {
+  position: absolute;
+  width: 100%
+}
+
 #nav-outer {
   opacity: 1;
   z-index: 1;
@@ -20,6 +25,10 @@
   .link.active {
     border-color: $accent;
   }
+
+  #nav {
+    margin-top: 30px;
+  }
 }
 
 @keyframes animateright {
@@ -35,7 +44,7 @@
 }
 
 .content {
-  margin: 10px;
+  margin: 30px 10px;
 
   @media screen and (min-width: $break-md) {
     margin-left: 7%;

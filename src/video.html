@@ -7,10 +7,46 @@
     <meta name="viewport" content="width=340px, initial-scale=1">
   </head>
   <body>
-    <div id="wrap">
+    <button id="open" class="hamburger hamburger--3dx" type="button">
+      <span class="hamburger-box">
+        <span class="hamburger-inner"></span>
+      </span>
+    </button>
+    <div class="wrap">
+      <div id="nav-outer">
+        <div id="nav">
+          <div>
+            <a href="/experience.html" class="link">
+              experience
+            </a>
+          </div>
+          <div>
+            <a href="/expertise.html" class="link">
+              expertise
+            </div>
+          </div>
+          <div>
+            <a href="/design.html" class="link">
+              design
+            </a>
+          </div>
+          <div>
+            <div class="link active">
+              video
+            </div>
+          </div>
+          <div>
+            <a href="/contact.html" class="link">
+              contact
+            </a>
+          </div>
+        </div>
+      </div>
+    <div class="content">
       <h1>Video Production</h1>
       <br>
       <br>
+      <div id="wrap">
       <h2>Audience Veteran Recognition</h2>
       <video poster="/assets/vid/vet.jpg"
           id="vet" class="video-js vjs-4-3" controls preload="auto" width="540" height="264" data-setup='{"fluid":true}'>
@@ -32,6 +68,7 @@
         </p>
       </video>
       <br>
+      </div>
     </div>
   </body>
 </html>
