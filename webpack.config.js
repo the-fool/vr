@@ -74,6 +74,8 @@ module.exports = {
     }),
     page('experience'),
     page('expertise'),
+    page('design'),
+    page('contact'),
     new webpack.LoaderOptionsPlugin({
       minimize: true,
       options: {
