@@ -9,7 +9,8 @@ const CopyWebpackPlugin = require('copy-webpack-plugin');
 const page = name => new HtmlWebpackPlugin({
   filename: `${name}.html`,
   template: path.resolve(__dirname, `./src/${name}.html`),
-  chunks: ['commons', 'page']
+  chunks: ['commons', 'page'],
+  hash: true
 });
 
 module.exports = {
